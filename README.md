@@ -17,7 +17,7 @@ I used jenkins to create a CI and run pipeline but we must install some tools :
 - maven
 - jdk 8 or 11
 
-
+![alt text](https://raw.githubusercontent.com/RaphiSmadja/Pois/master/img/jenkins.png)
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
