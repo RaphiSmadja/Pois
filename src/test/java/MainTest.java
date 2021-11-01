@@ -41,4 +41,16 @@ public class MainTest {
         assertEquals(2, val);
     }
 
+    @Test
+    void should_return_0_calculateNbPois_lat_7_lon_35() throws Exception {
+        //Given
+        String[] args = {"test.tsv"};
+        Main main = new Main();
+        LinkedList<Poi> list = main.openFile(args);
+        //When
+        int val = main.calculateNbPois(7, 35, list);
+        //Then
+        assertEquals(0, val);
+    }
+
 }
