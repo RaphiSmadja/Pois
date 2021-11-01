@@ -2,6 +2,8 @@
 import exception.TsvException;
 import org.junit.jupiter.api.Test;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.util.LinkedList;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -27,6 +29,19 @@ public class MainTest {
         TsvException tsvException = assertThrows(TsvException.class, () -> main.openFile(args));
         //Then
         assertEquals("The format of file must be a 'tsv'", tsvException.getMessage());
+    }
+
+    @Test
+    public void whenReadWithBufferedReader_thenCorrect() throws Exception {
+        //Given
+        String expected_value = "@id\t@lat\t@lon";
+        String file ="test.tsv";
+        //When
+        BufferedReader reader = new BufferedReader(new FileReader(file));
+        String currentLine = reader.readLine();
+        reader.close();
+        //Then
+        assertEquals(expected_value, currentLine);
     }
 
     @Test

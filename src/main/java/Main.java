@@ -1,20 +1,18 @@
 import exception.TsvException;
 import org.apache.commons.io.FilenameUtils;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
+import java.io.*;
 import java.util.LinkedList;
 
 public class Main {
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         if (args.length != 1) {
             throw new IllegalArgumentException("You must pass a file as an args");
         }
     }
 
-    public LinkedList<Poi> openFile(String[] args) throws Exception {
+    public LinkedList<Poi> openFile(String[] args) {
         String extension = FilenameUtils.getExtension(args[0]);
         LinkedList<Poi> map = new LinkedList<>();
         if (extension.equals("tsv")) {
@@ -36,8 +34,8 @@ public class Main {
                     reader.close();
                     return map;
                 }
-            } catch (Exception fileNotFoundException) {
-                throw new Exception(fileNotFoundException);
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         } else {
             throw new TsvException("The format of file must be a 'tsv'");
